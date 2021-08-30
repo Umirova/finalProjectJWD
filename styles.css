@@ -1,15 +1,22 @@
-*{
-    margin:0;
-    padding:0;
-}
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
+    /* background-image: url("./images/background2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color:white;
+}
 
 .ourLogo img {
     width:150px;
     height: 150px;
     align-items: left;
-    padding-left: 30px;
-    padding-top: 20px;
+    margin-left: 70px;
+    margin-top: 40px;
 }
 .flexbox-container {
     display: flex;
@@ -22,14 +29,17 @@
 .flexbox-item{
 margin: 1px;
 width: 33%;
+
 }
 
 .piechart {
     margin-top: 0px;
     display: block;
-    position: absolute;
-    width: 200px;
-    height: 200px;
+    position: relative;
+    top: 15%;
+    left: 15%;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-image: conic-gradient(
         green 70deg, 
@@ -41,16 +51,39 @@ width: 33%;
 .piechart {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start;
 }
 .myprogress h1{
     position: fixed;
+}
 
+.myprogress{
+    border: solid 1px black;
+    border-radius: 5%;
+    background-color: white;
 }
 
 #addButton{
     border-radius: 50%;
     border: 1px solid white;
-    padding: 10% 30% ;
+    padding: 5% 30% 10% 30%;
     font-size: 200%;
+}
+.mybxs{
+
+    padding: 2%;
+}
+.myrow {
+    box-sizing: content-box;
+    width: 100%;
+}
+
+.flex2{
+   
+    position: relative;
+    top: 55%;
+    right: 50%;
+    font-size: 90%;
+
+
 }
