@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
@@ -24,13 +24,14 @@
       />
     </header>
 
-    <main class="container">
-      <div class="row">
-        <div class="ourButton col-1" >
+    <main class="container myContainer">
+       
+      <div class="row myrow">
+        <div class="ourButton col-1 mybxs" >
             <button type="button" class="btn btn-success"id="addButton" >+</button>
         </div>
 
-        <div class="col-8 flexbox-container" id="flexContainer">
+        <div class="col-8 flexbox-container mybxs" id="flexContainer">
           <div
             class="card border-danger mb-3 flexbox-item"
             style="max-width: 18rem"
@@ -75,8 +76,7 @@
 
           <div
             class="card border-danger mb-3 flexbox-item"
-            style="max-width: 18rem"
-          >
+            style="max-width: 18rem">
             <div class="card-header">Header</div>
             <div class="card-body text-danger">
               <h5 class="card-title">Danger card title</h5>
@@ -85,14 +85,38 @@
                 the bulk of the card's content.
               </p>
             </div>
+          </div>
+
+          <div
+          class="card border-danger mb-3 flexbox-item"
+          style="max-width: 18rem">
+          <div class="card-header">Header</div>
+          <div class="card-body text-danger">
+            <h5 class="card-title">Danger card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
           </div>
         </div>
 
+
+
+
+        </div>
+
         
-        <div class="myprogress col-3">
+        <div class="myprogress col-3 mybxs">
           <h1>Progress</h1>
-         
           <div class="piechart"></div>
+          
+        <div class="mydscr flex2">
+
+          <button type="button" class="btn btn-success"> </button> <p>Completed</p>
+          <button type="button" class="btn btn-danger"> </button>  <p>Not Started</p>
+          <button type="button" class="btn btn-warning"> </button> <p>In Progress</p>
+        </div>
+
         </div>
       </div>
     </main>
