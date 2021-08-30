@@ -1,0 +1,56 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+.ourLogo img {
+    width:150px;
+    height: 150px;
+    align-items: left;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.flexbox-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    width: 100%;
+
+
+}
+.flexbox-item{
+margin: 1px;
+width: 33%;
+}
+
+.piechart {
+    margin-top: 0px;
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        green 70deg, 
+        red 0 235deg, 
+        yellow 0);
+}
+
+.myprogress,
+.piechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myprogress h1{
+    position: fixed;
+
+}
+
+#addButton{
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 10% 30% ;
+    font-size: 200%;
+}
