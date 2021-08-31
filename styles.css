@@ -9,7 +9,9 @@ body{
     background-repeat: no-repeat;
     background-size: cover; */
     background-color:white;
+
 }
+
 
 .ourLogo img {
     width:150px;
@@ -19,18 +21,21 @@ body{
     margin-top: 40px;
 }
 .flexbox-container {
+    margin: 0 0%; 
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-around;
+    gap: 5%;
     width: 100%;
-
-
 }
+
+
 .flexbox-item{
 margin: 1px;
-width: 33%;
+min-width: 33%;
+
 
 }
+
 
 .piechart {
     margin-top: 0px;
