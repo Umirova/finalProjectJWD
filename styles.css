@@ -4,14 +4,6 @@
 *::after {
   box-sizing: border-box;
 }
-body{
-    /* background-image: url("./images/background2.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color:white;
-
-}
-
 
 .ourLogo img {
     width:150px;
@@ -20,19 +12,10 @@ body{
     margin-left: 70px;
     margin-top: 40px;
 }
-.flexbox-container {
-    margin: 0 0%; 
+
+.myrow{
     display: flex;
-    flex-wrap: wrap; 
-    gap: 5%;
-    width: 100%;
-}
-
-
-.flexbox-item{
-margin: 1px;
-min-width: 33%;
-
+    flex-wrap: wrap;
 
 }
 
@@ -52,21 +35,12 @@ min-width: 33%;
         yellow 0);
 }
 
-.myprogress,
-.piechart {
-    display: flex;
-    justify-content: center;
-    align-items:flex-start;
-}
-.myprogress h1{
-    position: fixed;
-}
-
 .myprogress{
     border: solid 1px black;
     border-radius: 5%;
     background-color: white;
 }
+
 
 #addButton{
     border-radius: 50%;
@@ -74,10 +48,7 @@ min-width: 33%;
     padding: 5% 30% 10% 30%;
     font-size: 200%;
 }
-.mybxs{
 
-    padding: 2%;
-}
 .myrow {
     box-sizing: content-box;
     width: 100%;
@@ -89,6 +60,9 @@ min-width: 33%;
     top: 55%;
     right: 50%;
     font-size: 90%;
+}
 
-
+.myrow2{
+    display: flex;
+    
 }

@@ -34,15 +34,18 @@
     <main class="container myContainer">
        
       <div class="row myrow">
-        <div class="ourButton col-1 mybxs" >
+
+
+        <div class="ourButton col-1 mybxs">
             <button type="button" class="btn btn-success"id="addButton" >+</button>  
             
         </div>
 
         <div class="col-8 flexbox-container mybxs" id="flexContainer">
-
-          <div
-            class="card border-danger mb-3 flexbox-item flexbox-item1"
+          <form class="row g-3">
+    
+            <div
+            class="card mb-3 flexbox-item flexbox-item1"
             style="max-width: 18rem"
           >
           <div class="input-group">
@@ -50,11 +53,11 @@
             <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
             
           </div>
-
+        
             <div class="card-body text-danger">
             <label for="floatingTextarea">Description</label>
               <div class="form-floating">
-
+        
                 <textarea class="form-control" id="floatingTextarea"></textarea>
                 
               </div>
@@ -69,9 +72,9 @@
                 </select>
                 
               </div>
-
+        
               <br>
-
+        
               <div class="form-floating">
                 <label for="floatingSelect">Status</label>
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -82,7 +85,7 @@
                 </select>
                 
               </div>
-
+        
               <section class="col-sm-12">
                 <div class="form-group">
                     <label for="datetimepicker1">Due date</label>
@@ -93,321 +96,29 @@
                         </span>
                     </div>
                 </div>
-    
+        
               </section>
-
-            </div>
-          </div>
-
-          <div
-          class="card border-danger mb-3 flexbox-item"
-          style="max-width: 18rem"
-        >
-        <div class="input-group">
-      
-          <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
-          
-        </div>
-
-          <div class="card-body text-danger">
-          <label for="floatingTextarea">Description</label>
-            <div class="form-floating">
-
-              <textarea class="form-control" id="floatingTextarea"></textarea>
-              
-            </div>
-            <br>
-            <div class="form-floating">
-              <label for="floatingSelect">Assigned to</label>
-              <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                <option selected>Lisa</option>
-                <option value="1">Kate</option>
-                <option value="2">Joel</option>
-                <option value="3">Nazgul</option>
-              </select>
-              
-            </div>
-
-            <br>
-
-            <div class="form-floating">
-              <label for="floatingSelect">Status</label>
-              <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                <option selected>To Do</option>
-                <option value="1">In Progress</option>
-                <option value="2">Done!</option>
-                <option value="3">Review</option>
-              </select>
-              
-            </div>
-
-            <section class="col-sm-12">
-              <div class="form-group">
-                  <label for="datetimepicker1">Due date</label>
-                  <div class='input-group date' id='datetimepicker1'>
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                  </div>
-              </div>
-  
-            </section>
-
-          </div>
-        </div>
-
-        <div
-        class="card border-danger mb-3 flexbox-item"
-        style="max-width: 18rem"
-      >
-      <div class="input-group">
-    
-        <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
         
-      </div>
-
-        <div class="card-body text-danger">
-        <label for="floatingTextarea">Description</label>
-          <div class="form-floating">
-
-            <textarea class="form-control" id="floatingTextarea"></textarea>
+            </div>
+          </div>
             
-          </div>
-          <br>
-          <div class="form-floating">
-            <label for="floatingSelect">Assigned to</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>Lisa</option>
-              <option value="1">Kate</option>
-              <option value="2">Joel</option>
-              <option value="3">Nazgul</option>
-            </select>
             
-          </div>
-
-          <br>
-
-          <div class="form-floating">
-            <label for="floatingSelect">Status</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>To Do</option>
-              <option value="1">In Progress</option>
-              <option value="2">Done!</option>
-              <option value="3">Review</option>
-            </select>
             
-          </div>
-
-          <section class="col-sm-12">
-            <div class="form-group">
-                <label for="datetimepicker1">Due date</label>
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+            
+              
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
+          </form>
 
-          </section>
-
-        </div>
-      </div>
-
-      <div
-      class="card border-danger mb-3 flexbox-item"
-      style="max-width: 18rem"
-    >
-    <div class="input-group">
-  
-      <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
-      
-    </div>
-
-      <div class="card-body text-danger">
-      <label for="floatingTextarea">Description</label>
-        <div class="form-floating">
-
-          <textarea class="form-control" id="floatingTextarea"></textarea>
-          
-        </div>
-        <br>
-        <div class="form-floating">
-          <label for="floatingSelect">Assigned to</label>
-          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-            <option selected>Lisa</option>
-            <option value="1">Kate</option>
-            <option value="2">Joel</option>
-            <option value="3">Nazgul</option>
-          </select>
-          
-        </div>
-
-        <br>
-
-        <div class="form-floating">
-          <label for="floatingSelect">Status</label>
-          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-            <option selected>To Do</option>
-            <option value="1">In Progress</option>
-            <option value="2">Done!</option>
-            <option value="3">Review</option>
-          </select>
-          
-        </div>
-
-        <section class="col-sm-12">
-          <div class="form-group">
-              <label for="datetimepicker1">Due date</label>
-              <div class='input-group date' id='datetimepicker1'>
-                  <input type='text' class="form-control" />
-                  <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-          </div>
-
-        </section>
-
-      </div>
-    </div>
-
-    <div
-    class="card border-danger mb-3 flexbox-item"
-    style="max-width: 18rem"
-  >
-  <div class="input-group">
-
-    <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
-    
-  </div>
-
-    <div class="card-body text-danger">
-    <label for="floatingTextarea">Description</label>
-      <div class="form-floating">
-
-        <textarea class="form-control" id="floatingTextarea"></textarea>
         
-      </div>
-      <br>
-      <div class="form-floating">
-        <label for="floatingSelect">Assigned to</label>
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option selected>Lisa</option>
-          <option value="1">Kate</option>
-          <option value="2">Joel</option>
-          <option value="3">Nazgul</option>
-        </select>
-        
-      </div>
-
-      <br>
-
-      <div class="form-floating">
-        <label for="floatingSelect">Status</label>
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option selected>To Do</option>
-          <option value="1">In Progress</option>
-          <option value="2">Done!</option>
-          <option value="3">Review</option>
-        </select>
-        
-      </div>
-
-      <section class="col-sm-12">
-        <div class="form-group">
-            <label for="datetimepicker1">Due date</label>
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-
-      </section>
-
-    </div>
-  </div>
-
-  <div
-  class="card border-danger mb-3 flexbox-item"
-  style="max-width: 18rem"
->
-<div class="input-group">
-
-  <input type="text" aria-label="First name" class="form-control" placeholder="Task name">
-  
-</div>
-
-  <div class="card-body text-danger">
-  <label for="floatingTextarea">Description</label>
-    <div class="form-floating">
-
-      <textarea class="form-control" id="floatingTextarea"></textarea>
-      
-    </div>
-    <br>
-    <div class="form-floating">
-      <label for="floatingSelect">Assigned to</label>
-      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-        <option selected>Lisa</option>
-        <option value="1">Kate</option>
-        <option value="2">Joel</option>
-        <option value="3">Nazgul</option>
-      </select>
-      
-    </div>
-
-    <br>
-
-    <div class="form-floating">
-      <label for="floatingSelect">Status</label>
-      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-        <option selected>To Do</option>
-        <option value="1">In Progress</option>
-        <option value="2">Done!</option>
-        <option value="3">Review</option>
-      </select>
-      
-    </div>
-
-    <section class="col-sm-12">
-      <div class="form-group">
-          <label for="datetimepicker1">Due date</label>
-          <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-          </div>
-      </div>
-
-    </section>
-
-  </div>
-</div>
-
-
-
-    
-
-       
-
           
-
-         
-
-         
-
-
-
 
         </div>
 
         
         <div class="myprogress col-3 mybxs">
+
           <h1>Progress</h1>
           <div class="piechart"></div>
           
@@ -419,7 +130,78 @@
         </div>
 
         </div>
+
+
       </div>
+
+      <div class="row myrow2">
+
+        <div class="col-12">
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Groceries</h5>
+              <p class="card-text">buy tomatoes and bread</p>
+              <p class="card-text">Assigned to: Mark</p>
+              <p class="card-text">Status: cleaning</p>
+              <p class="card-text">Due date: 23/12/21</p>
+           
+            </div>
+          </div>
+        
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Cleaning</h5>
+              <p class="card-text">clean the toilet and house</p>
+              <p class="card-text">Assigned to: John</p>
+              <p class="card-text">Status: TO Do</p>
+              <p class="card-text">Due date: 31/12/21</p>
+           
+            </div>
+          </div>
+        
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Groceries</h5>
+              <p class="card-text">buy tomatoes and bread</p>
+              <p class="card-text">Assigned to: Mark</p>
+              <p class="card-text">Status: cleaning</p>
+              <p class="card-text">Due date: 23/12/21</p>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Groceries</h5>
+              <p class="card-text">buy tomatoes and bread</p>
+              <p class="card-text">Assigned to: Mark</p>
+              <p class="card-text">Status: cleaning</p>
+              <p class="card-text">Due date: 23/12/21</p>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Groceries</h5>
+              <p class="card-text">buy tomatoes and bread</p>
+              <p class="card-text">Assigned to: Mark</p>
+              <p class="card-text">Status: cleaning</p>
+              <p class="card-text">Due date: 23/12/21</p>
+            </div>
+          </div>
+
+
+
+
+        </div>
+       
+
+      </div>
+      
+
+
     </main>
 
     <script type="text/javascript">
