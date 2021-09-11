@@ -33,31 +33,48 @@ margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.1%;
-    justify-content:center;
+    justify-content:flex-start;
     margin-left: auto;
     margin-right: auto;
 
 }
  
 .mycard {
-    max-width: 50%;
+
     margin-top: 2%;
     margin-right: 0.5%;
     margin-left: 0.5%;
 }
 .mycard-title{
-    background-color: rgb(60,60,60);
+    
     padding: 1rem;
     color: white;
 }
+
+.toDo{
+    background-color: rgb(202, 12, 12);
+}
+.done {
+    background-color: green;
+}
+.review{
+    background-color: blue;
+}
+.inProgress{
+    background-color: rgb(209, 209, 35);
+}
+
+
 .myrow1{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+
+    
 }
 
 .progress{
     padding: 0rem;
-    border: solid 1px blue;
+    border: solid 1px black;
     margin-top: 1.5%;
     margin-right: 15%;
 
@@ -108,4 +125,13 @@ margin-top: 3rem;
       color: white;
       text-align: center;
       font-size: 1.2rem;
+  }
+
+  #backToTop {
+      background-color: white;
+      border-radius: 5%;
+      border: solid 1px black;
+      color: black;
+      padding: 1%;
+
   }
