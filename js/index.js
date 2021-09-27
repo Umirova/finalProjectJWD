@@ -1,6 +1,21 @@
 const form = document.querySelector("#new-task-form");
 const reset = document.querySelector("#reset");
+const newTask = new TaskManager();
 
+function resetForm(){
+    let taskName = document.getElementById("taskName").value = '';
+    let textArea = document.getElementById("floatingTextarea").value = '';
+    let assignedTo = document.getElementById("assignedTo").value = '';
+    let status = document.getElementById("status").value = '';
+    let dueDate = document.getElementById("duedate").value = '';
+
+    let tnError = document.getElementById("tnError").innerHTML = '';
+    let taError = document.getElementById("taError").innerHTML = '';
+    let astError = document.getElementById("astError").innerHTML='';
+    let sError = document.getElementById("sError").innerHTML='';
+    let ddError = document.getElementById("ddError").innerHTML='';
+
+}
 
 function validation() {
     //grabbing variables
@@ -20,8 +35,7 @@ function validation() {
     //Validation form for Task name
     if (taskName.value.length > 5){
         tnError.innerHTML = '';
-        
-       
+           
     } else if (taskName.value.length <= 5){
         tnError.innerHTML = 'Task name must be more than 5 characters';
         errorNum++;
@@ -50,7 +64,6 @@ function validation() {
         sError.innerHTML = "Status must have a value";
         errorNum++;
     }
-
     //validation form for dueDate
     if (dueDate.value){
         ddError.innerHTML = ''
@@ -58,29 +71,21 @@ function validation() {
     } else if (!dueDate.value){
         ddError.innerHTML = "Date must be selected"
         errorNum++;
+    };
+
+    if (errorNum === 0){
+        newTask.addTask(
+            taskName.value,
+            textArea.value,
+            assignedTo.value,
+            dueDate.value,
+            status.value,
+        );
+        resetForm();  
+        newTask.render();
+    } else{
+        return false;
     }
-
-
-    if (errorNum = 0){
-        return true;
-    } return false;
-
-    
-}
-
-function resetForm(){
-    let taskName = document.getElementById("taskName");
-    let textArea = document.getElementById("floatingTextarea");
-    let assignedTo = document.getElementById("assignedTo");
-    let status = document.getElementById("status");
-    let dueDate = document.getElementById("duedate");
-
-
-    taskName.value = '';
-    textArea.value = '';
-    assignedTo.value = '';
-    status.value = '';
-    dueDate.value = '';
 }
 
 
