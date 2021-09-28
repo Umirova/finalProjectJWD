@@ -1,7 +1,7 @@
-const createTaskHtml = (name, description, assignedTo,dueDate, status)=> {
+const createTaskHtml = (name, description, assignedTo,dueDate, status, style) => {
     const html = `<div class="card mycard" style="width: 24rem">
             <div class="card-body">
-              <h5 class="card-title mycard-title toDo">${name}</h5>
+              <h5 class="card-title mycard-title ${style}">${name}</h5>
               <p class="card-text"> Description: ${description}</p>
               <p class="card-text">Assigned to: ${assignedTo}</p>
               <p class="card-text">Status:${status}</p>
@@ -25,7 +25,6 @@ const createTaskHtml = (name, description, assignedTo,dueDate, status)=> {
             </div>
           </div>`
           return html;
-
 };
 
 class TaskManager{
@@ -41,36 +40,52 @@ class TaskManager{
         assignedTo: assignedTo,
         dueDate: dueDate,
         status: status,
+        style: (function(status){
+            if (status === "To Do!"){
+               return 'toDo';
+            } else if (status === "Review"){
+              return 'review';
+             } else if (status === "In Progress"){
+              return 'inProgress';
+            }  else {
+              return 'done';
+            }
+        })(status)
        }
 
        this.tasks.push(task);
     }
     render(){
-        let tasksHtmlList = [];
-        for (let i=0; i<this.tasks.length; i++){
-            const task = this.tasks[i];
-            const date = new Date(task.dueDate);
-            const formattedDate =
-             date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-               // Create the task html
+      let tasksHtmlList = [];
+      for (let i=0; i<this.tasks.length; i++){
+          const task = this.tasks[i];
+          const date = new Date(task.dueDate);
+          const formattedDate =
+           date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+             
+               //the task html function calls createTaskHtml()
             const taskHtml = createTaskHtml(
                 task.name,
                 task.description,
                 task.assignedTo,
                 formattedDate,
-                task.status
+                task.status,
+                task.style
              );
-            // Push it to the tasksHtmlList array
-            tasksHtmlList.push(taskHtml);
-        }
+          
+              // Push it to the tasksHtmlList array
+              tasksHtmlList.push(taskHtml);
+             
+            }
 
-            // Create the tasksHtml by joining each item in the tasksHtmlList
+              // Create the tasksHtml by joining each item in the tasksHtmlList
             // with a new line in between each item.
             const tasksHtml = tasksHtmlList.join("\n");
         
             // Set the inner html of the tasksList on the page
             const tasksList = document.querySelector("#task-list");
             tasksList.innerHTML = tasksHtml;
+
     }
     save(){
     let tasksJson =JSON.stringify(this.tasks);
@@ -92,6 +107,9 @@ class TaskManager{
       }*/
     }
        
+
+
+
 
 
 

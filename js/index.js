@@ -69,10 +69,10 @@ function validation() {
     }
     //validation form for dueDate
     if (dueDate.value){
-        ddError.innerHTML = ''
+        ddError.innerHTML = '';
        
     } else if (!dueDate.value){
-        ddError.innerHTML = "Date must be selected"
+        ddError.innerHTML = "Date must be selected";
         errorNum++;
     };
 
@@ -90,15 +90,10 @@ function validation() {
     } else{
         return false;
     }
+}
     
 
 //calling events
 form.addEventListener("click", validation);
 reset.addEventListener("click",resetForm);
-
-
-
-
-
-
 
