@@ -1,9 +1,9 @@
+const newTask = new TaskManager();
+newTask.load();
+newTask.render();
+
 const form = document.querySelector("#new-task-form");
 const reset = document.querySelector("#reset");
-const newTask = new TaskManager();
-/*newTask.load();
-newTask.render();*/
-
 
 function resetForm(){
     let taskName = document.getElementById("taskName").value = '';
@@ -84,8 +84,8 @@ function validation() {
             dueDate.value,
             status.value,
         );
-        newTask.render();
         newTask.save();
+        newTask.render();
         resetForm();  
     } else{
         return false;
@@ -96,4 +96,11 @@ function validation() {
 //calling events
 form.addEventListener("click", validation);
 reset.addEventListener("click",resetForm);
+
+
+const taskList = document.querySelector("#task-list");
+
+tasksList.addEventListener('click', (event) => { // "event" here is the event parameter
+
+});
 

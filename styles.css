@@ -59,15 +59,9 @@ body {
   background-color: rgb(209, 209, 35);
 }
 
-<<<<<<< HEAD
 .myrow1 {
   display: flex;
   justify-content: center;
-=======
-.myrow1{
-    display: flex;
-    justify-content: center; 
->>>>>>> b2d66a8dba2ee4897d0e9e2de61fc8ea16ca2172
 }
 
 .progress {
@@ -110,18 +104,8 @@ footer {
   width: 100%;
 }
 
-<<<<<<< HEAD
-#backToTop {
-  background-color: white;
-  border-radius: 5%;
-  border: solid 1px black;
-  color: black;
-  padding: 1%;
-  width: 120px;
-  margin-left: 0.9%;
-  margin-top: 2%;
-}
-=======
+
+
   #backToTop {
       background-color: white;
       border-radius: 5%;
@@ -133,7 +117,6 @@ footer {
       margin-top: 2%;
     
   }
->>>>>>> b2d66a8dba2ee4897d0e9e2de61fc8ea16ca2172
 
 .myError {
   color: red;
