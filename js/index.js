@@ -1,6 +1,9 @@
 const form = document.querySelector("#new-task-form");
 const reset = document.querySelector("#reset");
 const newTask = new TaskManager();
+/*newTask.load();
+newTask.render();*/
+
 
 function resetForm(){
     let taskName = document.getElementById("taskName").value = '';
@@ -81,18 +84,17 @@ function validation() {
             dueDate.value,
             status.value,
         );
-        resetForm();  
         newTask.render();
+        newTask.save();
+        resetForm();  
     } else{
         return false;
     }
-}
-
+    
 
 //calling events
 form.addEventListener("click", validation);
-reset.addEventListener("click",resetForm)
-
+reset.addEventListener("click",resetForm);
 
 
 

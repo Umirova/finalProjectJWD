@@ -1,132 +1,121 @@
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-body{
-    background-image: url(./images/backgr.jpeg);
-    margin-bottom: 30%;
+body {
+  background-image: url(./images/backgr.jpeg);
+  margin-bottom: 30%;
 }
 
 .ourLogo img {
-    width:190px;
-    height: 190px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
 }
-.myContainer{
-margin-top: 3rem;
-
+.myContainer {
+  margin-top: 3rem;
 }
-.mycont0{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+.mycont0 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.mycont{
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 0.1%;
-    justify-content:flex-start;
-    margin-left: auto;
-    margin-right: auto;
-
+.mycont {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.1%;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
 }
- 
+
 .mycard {
-
-    margin-top: 2%;
-    margin-right: 0.5%;
-    margin-left: 0.5%;
-}
-.mycard-title{
-    
-    padding: 1rem;
-    color: white;
+  margin-top: 2%;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
 }
 
-.toDo{
-    background-color: rgb(202, 12, 12);
+.mycard-title {
+  padding: 1rem;
+  color: white;
+}
+
+.toDo {
+  background-color: rgb(202, 12, 12);
 }
 .done {
-    background-color: green;
+  background-color: green;
 }
-.review{
-    background-color: blue;
+.review {
+  background-color: blue;
 }
-.inProgress{
-    background-color: rgb(209, 209, 35);
-}
-
-
-.myrow1{
-    display: flex;
-    justify-content: center; 
+.inProgress {
+  background-color: rgb(209, 209, 35);
 }
 
-.progress{
-    padding: 0rem;
-    border: solid 1px black;
-    margin-top: 1.5%;
-    margin-right: 15%;
-
+.myrow1 {
+  display: flex;
+  justify-content: center;
 }
 
-  
-  label {
-    display: block;
-  }
+.progress {
+  padding: 0rem;
+  border: solid 1px black;
+  margin-top: 1.5%;
+  margin-right: 15%;
+}
 
+label {
+  display: block;
+}
 
-  .mycard-buttons{
-      display: flex;
-      justify-content:flex-end;
-  }
+.mycard-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .ed-dl-button{
-      margin-left: 0.5%;
-  }
+.ed-dl-button {
+  margin-left: 0.5%;
+}
 
-  .card-text {
-      padding: 1rem 1rem 0 1rem;
-  }
+.card-text {
+  padding: 1rem 1rem 0 1rem;
+}
 
-  .progr-bar{
-      min-height: 2.2rem;
-  }
+.progr-bar {
+  min-height: 2.2rem;
+}
 
-  footer{
-      background-color: black;
-      color: white;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      text-align: center;
-      font-size: 1.2rem;
-      position:fixed;
-      bottom:0;
-      width:100%;
-     
+footer {
+  background-color: black;
+  color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
-  }
+#backToTop {
+  background-color: white;
+  border-radius: 5%;
+  border: solid 1px black;
+  color: black;
+  padding: 1%;
+  width: 120px;
+  margin-left: 0.9%;
+  margin-top: 2%;
+}
 
-  #backToTop {
-      background-color: white;
-      border-radius: 5%;
-      border: solid 1px black;
-      color: black;
-      padding: 1%;
-      width: 120px;
-      margin-left: 0.9%;
-      margin-top: 2%;
-  }
-
-  .myError{
-      color:red;
-      font-size: 80%;
-  }
+.myError {
+  color: red;
+  font-size: 80%;
+}

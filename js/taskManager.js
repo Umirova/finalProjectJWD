@@ -72,7 +72,27 @@ class TaskManager{
             const tasksList = document.querySelector("#task-list");
             tasksList.innerHTML = tasksHtml;
     }
-}
+    save(){
+    let tasksJson =JSON.stringify(this.tasks);
+    localStorage.setItem('tasks',tasksJson);
+    let currentId = JSON.stringify(this.currentId);
+    localStorage.setItem('currentId',currentId);
+        }
+
+    /*load(){
+      if(localStorage.getItem('tasks') { 
+        let tasksJson=localStorage.getItem('tasks');
+        this.tasks=JSON.parse(tasksJson);
+      }
+
+      if (localStorage.getItem('currentId')){
+        let currentId=localStorage.getItem('currentId');
+        this.currentId=JSON.parse(currentId);
+      }
+      }*/
+    }
+       
+
 
 
 
