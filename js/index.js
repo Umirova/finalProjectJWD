@@ -1,6 +1,6 @@
-const newTask = new TaskManager();
-newTask.load();
-newTask.render();
+const taskManager = new TaskManager();
+taskManager.load();
+taskManager.render();
 
 const form = document.querySelector("#new-task-form");
 const reset = document.querySelector("#reset");
@@ -77,15 +77,15 @@ function validation() {
     };
 
     if (errorNum === 0){
-        newTask.addTask(
+        taskManager.addTask(
             taskName.value,
             textArea.value,
             assignedTo.value,
             dueDate.value,
             status.value,
         );
-        newTask.save();
-        newTask.render();
+        taskManager.save();
+        taskManager.render();
         resetForm();  
     } else{
         return false;
@@ -100,7 +100,26 @@ reset.addEventListener("click",resetForm);
 
 const taskList = document.querySelector("#task-list");
 
-tasksList.addEventListener('click', (event) => { // "event" here is the event parameter
+taskList.addEventListener("click", (event) => { 
+    
+    if (event.target.classList.contains("delete-button")) { 
+        let parentTask = event.target.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);        taskManager.deleteTask(taskId);
+        taskManager.save();
+        taskManager.render();
+    };
+    if (event.target.classList.contains("delete-svg")){
+        let parentTask = event.target.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);        taskManager.deleteTask(taskId);
+        taskManager.save();
+        taskManager.render();
+    };
+
+    if (event.target.classList.contains("edit-button")){
+        
+    }
+
 
 });
+
 
