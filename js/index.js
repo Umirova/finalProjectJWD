@@ -4,6 +4,24 @@ taskManager.render();
 
 const form = document.querySelector("#new-task-form");
 const reset = document.querySelector("#reset");
+const addTask = document.querySelector("#addTask");
+
+function toDay() {
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+let yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd
+} 
+if(mm<10){
+    mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+
+console.log(today);
+document.getElementById("duedate").setAttribute("min", today); }
 
 function resetForm(){
     let taskName = document.getElementById("taskName").value = '';
@@ -94,6 +112,9 @@ function validation() {
     
 
 //calling events
+
+
+addTask.addEventListener("click", toDay);
 form.addEventListener("click", validation);
 reset.addEventListener("click",resetForm);
 

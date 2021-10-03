@@ -36,12 +36,7 @@
       <div class="row myrow1">
         <div class="col-5 flexbox-container mycont0">
           <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-light addnewbtn"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
+          <button type="button" class="btn btn-light addnewbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addTask"> 
             <u>Add New Task</u>
           </button>
 
@@ -64,7 +59,7 @@
                     <br />
                     <span id="tnError" class="myError"></span>
                     <div class="input-group">
-                      <input
+                      <input 
                         type="form-label"
                         class="form-control"
                         id="taskName"
@@ -128,12 +123,7 @@ sethyhyjut</textarea
                     <br />
                     <label for="duedate">Due Date:</label>
 
-                    <input
-                      type="date"
-                      name="duedate"
-                      id="duedate"
-                      value="2021-09-29"
-                    />
+                    <input type="date" name="duedate" id="duedate" min="2021-10-01"/>
                   </div>
 
                   <!--  <input type="reset" value="Reset"> -->
