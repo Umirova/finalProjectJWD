@@ -7,8 +7,10 @@ const createTaskHtml = (id,name,description,assignedTo,dueDate,status,style) => 
               <p class="card-text">Status: ${status}</p>
               <p class="card-text">Due date: ${dueDate}</p>
               <div class="mycard-buttons">
-                <button type="button" class="btn btn-secondary ed-dl-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+                
+                <button type="button" class="btn btn-secondary ed-dl-button edit-button onclick="editTaskForm(this)" data-task-id="${id}">
+
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="14"
                  height="14" fill="currentColor" class="bi bi-pencil-fill edit-svg" 
                  viewBox="0 0 16 16">
@@ -27,6 +29,10 @@ const createTaskHtml = (id,name,description,assignedTo,dueDate,status,style) => 
           </div>`;
   return html;
 };
+
+function openEditModeForm(edit) {
+  console.log(edit);
+}
 
 class TaskManager {
   constructor(currentId = 0) {
@@ -54,8 +60,46 @@ class TaskManager {
       })(status),
     };
 
-    this.tasks.push(task);
+    // Finding place for inserting new task
+    //adding TODO
+    if (task.status === "To Do!") {
+      this.tasks.unshift(task);
+    }
+    //adding IN Progress
+    if (task.status === "In Progress") {
+      let a;
+      for (let i = 0; i < this.tasks.length; i++) {
+        const taskIneed = this.tasks[i];
+        if (taskIneed.status === "Review") {
+          let foundTask = taskIneed;
+          a = this.tasks.indexOf(foundTask);
+        }
+      }
+      for (let i = 0; i < this.tasks.length; i++) {
+        const taskIneed = this.tasks[i];
+        if (taskIneed.status === "Done!") {
+          let foundTask = taskIneed;
+          a = this.tasks.indexOf(foundTask);
+        } else a = this.tasks.length;
+      }
+      this.tasks.splice(a, 0, task);
+    }
+
+    //adding Review
+    if (task.status === "Review") {
+      // ADD YOUR CODE HERE!
+      this.tasks.push(task);
+    }
+
+    //adding done
+    if (task.status === "Done!") {
+      this.tasks.push(task);
+    }
+    //start of trial
   }
+
+  //end of trial
+  //
 
   getTaskById(taskId) {
     // Create a variable to store the found task
