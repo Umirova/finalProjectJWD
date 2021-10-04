@@ -1,4 +1,12 @@
-const createTaskHtml = (id,name,description,assignedTo,dueDate,status,style) => {
+const createTaskHtml = (
+  id,
+  name,
+  description,
+  assignedTo,
+  dueDate,
+  status,
+  style
+) => {
   const html = `<div class="card mycard" data-task-id="${id}" style="width: 24rem">
             <div class="card-body">
               <h5 class="card-title mycard-title ${style}">${name}</h5>
@@ -67,28 +75,27 @@ class TaskManager {
     }
     //adding IN Progress
     if (task.status === "In Progress") {
-      let a;
-      for (let i = 0; i < this.tasks.length; i++) {
-        const taskIneed = this.tasks[i];
-        if (taskIneed.status === "Review") {
-          let foundTask = taskIneed;
-          a = this.tasks.indexOf(foundTask);
-        }
-      }
-      for (let i = 0; i < this.tasks.length; i++) {
-        const taskIneed = this.tasks[i];
-        if (taskIneed.status === "Done!") {
-          let foundTask = taskIneed;
-          a = this.tasks.indexOf(foundTask);
-        } else a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, task);
+      //NEED ADD SOME CODE
+
+      this.tasks.push(task);
     }
 
     //adding Review
     if (task.status === "Review") {
-      // ADD YOUR CODE HERE!
-      this.tasks.push(task);
+      let a;
+
+      if (this.tasks.some((t) => t.status === "Done!")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "Done!") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else {
+        a = this.tasks.length;
+      }
+
+      this.tasks.splice(a, 0, task);
     }
 
     //adding done
@@ -124,7 +131,7 @@ class TaskManager {
       const task = this.tasks[i];
       const date = new Date(task.dueDate);
       const formattedDate =
-        date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
       //the task html function calls createTaskHtml()
 
