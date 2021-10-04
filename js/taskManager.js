@@ -71,19 +71,60 @@ class TaskManager {
     // Finding place for inserting new task
     //adding TODO
     if (task.status === "To Do!") {
-      this.tasks.unshift(task);
+      let a;
+      if (this.tasks.some((t) => t.status === "In Progress")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "In Progress") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else if (this.tasks.some((t) => t.status === "Review")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "Review") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else if (this.tasks.some((t) => t.status === "Done!")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "Done!") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else {
+        a = this.tasks.length;
+      }
+      this.tasks.splice(a, 0, task);
     }
+    
     //adding IN Progress
     if (task.status === "In Progress") {
-      //NEED ADD SOME CODE
-
-      this.tasks.push(task);
+      let a;
+      if (this.tasks.some((t) => t.status === "Review")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "Review") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else if (this.tasks.some((t) => t.status === "Done!")) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          const taskINeed = this.tasks[i];
+          if (taskINeed.status === "Done!") {
+            a = this.tasks.indexOf(taskINeed);
+          }
+        }
+      } else {
+        a = this.tasks.length;
+      }
+      this.tasks.splice(a, 0, task);
     }
 
     //adding Review
     if (task.status === "Review") {
       let a;
-
       if (this.tasks.some((t) => t.status === "Done!")) {
         for (let i = 0; i < this.tasks.length; i++) {
           const taskINeed = this.tasks[i];

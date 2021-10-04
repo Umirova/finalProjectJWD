@@ -36,7 +36,13 @@
       <div class="row myrow1">
         <div class="col-5 flexbox-container mycont0">
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-light addnewbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addTask"> 
+          <button
+            type="button"
+            class="btn btn-light addnewbtn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            id="addTask"
+          >
             <u>Add New Task</u>
           </button>
 
@@ -59,11 +65,11 @@
                     <br />
                     <span id="tnError" class="myError"></span>
                     <div class="input-group">
-                      <input 
+                      <input
                         type="form-label"
                         class="form-control"
                         id="taskName"
-                        value="Do homework"
+                        value=""
                       />
                     </div>
 
@@ -73,10 +79,9 @@
                       <textarea
                         class="form-control"
                         id="floatingTextarea"
-                        value="sayshfhd"
+                        value=""
                       >
-sethyhyjut</textarea
-                      >
+                      </textarea>
                     </div>
                     <br />
 
@@ -109,12 +114,10 @@ sethyhyjut</textarea
                         aria-label="Floating label select example"
                       >
                         <option value></option>
-                        <option selected value="In Progress">
-                          In Progress
-                        </option>
-                        <option value="Done!">Done!</option>
-                        <option value="Review">Review</option>
                         <option value="To Do!">To Do!</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Review">Review</option>
+                        <option value="Done!">Done!</option>
                       </select>
                     </div>
                     <br />
@@ -123,7 +126,12 @@ sethyhyjut</textarea
                     <br />
                     <label for="duedate">Due Date:</label>
 
-                    <input type="date" name="duedate" id="duedate" min="2021-10-01"/>
+                    <input
+                      type="date"
+                      name="duedate"
+                      id="duedate"
+                      min="2021-10-01"
+                    />
                   </div>
 
                   <!--  <input type="reset" value="Reset"> -->
