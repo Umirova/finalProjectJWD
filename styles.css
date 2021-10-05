@@ -123,4 +123,6 @@ footer {
   color: red;
   font-size: 80%;
 }
-
+#mytaskId {
+display: none;
+}

@@ -61,6 +61,8 @@ function openEditModeForm(n) {
   myTaskAssTo.value = mytask.assignedTo;
   myTaskStatus.value = mytask.status;
   myTaskDueDate.value = mytask.dueDate;
+  
+
 }
 
 class TaskManager {
@@ -194,9 +196,19 @@ class TaskManager {
     matchingTask.assignedTo = assignedTo;
     matchingTask.dueDate = dueDate;
     matchingTask.status = status;
+    matchingTask.style = (function (status) {
+      if (status === "To Do!") {
+        return "toDo";
+      } else if (status === "Review") {
+        return "review";
+      } else if (status === "In Progress") {
+        return "inProgress";
+      } else {
+        return "done";
+      }
+    })(status);
     
-
-  }
+  };
 
 
 
