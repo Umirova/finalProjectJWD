@@ -1,3 +1,10 @@
+const myTaskId = document.getElementById("mytaskId");
+const myTaskName = document.getElementById("taskName");
+const myTaskText = document.getElementById("floatingTextarea");
+const myTaskAssTo = document.getElementById("assignedTo");
+const myTaskStatus = document.getElementById("status");
+const myTaskDueDate = document.getElementById("duedate");
+
 const createTaskHtml = (
   id,
   name,
@@ -7,17 +14,22 @@ const createTaskHtml = (
   status,
   style
 ) => {
-  const html = `<div class="card mycard" data-task-id="${id}" style="width: 24rem">
+  const html = `<div class="card mycard"  data-task-id="${id}" style="width: 24rem">
             <div class="card-body">
-              <h5 class="card-title mycard-title ${style}">${name}</h5>
-              <p class="card-text"> Description: ${description}</p>
-              <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status: ${status}</p>
-              <p class="card-text">Due date: ${dueDate}</p>
+              <h5 class="card-title mycard-title ${style}" id="myTaskName">${name}</h5>
+              <p class="card-text" id="myTaskDescription"> Description: ${description}</p>
+              <p class="card-text" id="myTaskAssTo">Assigned to: ${assignedTo}</p>
+              <p class="card-text" id="myTaskStatus">Status: ${status}</p>
+              <p class="card-text" id="myTaskDueDate">Due date: ${dueDate}</p>
               <div class="mycard-buttons">
                 
-                <button type="button" class="btn btn-secondary ed-dl-button edit-button onclick="editTaskForm(this)" data-task-id="${id}">
-
+                <button type="button" 
+                class="btn btn-secondary ed-dl-button edit-button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal" 
+                onclick="openEditModeForm(this)"
+                id="myTaskId"
+                data-task-id="${id}">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="14"
                  height="14" fill="currentColor" class="bi bi-pencil-fill edit-svg" 
@@ -38,8 +50,15 @@ const createTaskHtml = (
   return html;
 };
 
-function openEditModeForm(edit) {
-  console.log(edit);
+function openEditModeForm(n) {
+  const mytask = taskManager.getTaskById(Number(n.dataset.taskId));
+  myTaskId.value = mytask.id;
+  myTaskName.value = mytask.name;
+  myTaskName.readOnly = "true";
+  myTaskText.value = mytask.description;
+  myTaskAssTo.value = mytask.assignedTo;
+  myTaskStatus.value = mytask.status;
+  myTaskDueDate.value = mytask.dueDate;
 }
 
 class TaskManager {
@@ -98,7 +117,7 @@ class TaskManager {
       }
       this.tasks.splice(a, 0, task);
     }
-    
+
     //adding IN Progress
     if (task.status === "In Progress") {
       let a;
@@ -150,19 +169,14 @@ class TaskManager {
   //
 
   getTaskById(taskId) {
-    // Create a variable to store the found task
     let foundTask;
-    // Loop over the tasks and find the task with the id passed as a parameter
     for (let i = 0; i < this.tasks.length; i++) {
-      // Get the current task in the loop
       const task = this.tasks[i];
-      // Check if its the right task by comparing the task's id to the id passed as a parameter
       if (task.id === taskId) {
-        // Store the task in the foundTask variable
         foundTask = task;
       }
     }
-    // Return the found task
+    console.log(foundTask);
     return foundTask;
   }
 

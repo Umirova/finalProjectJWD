@@ -88,9 +88,10 @@ label {
   padding: 1rem 1rem 0 1rem;
 }
 
-.progr-bar {
+/* .progr-bar {
   min-height: 2.2rem;
-}
+  color: green;
+} */
 
 footer {
   background-color: black;
