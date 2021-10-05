@@ -101,7 +101,7 @@ function validation() {
       textArea.value,
       assignedTo.value,
       dueDate.value,
-      status.value
+      status.value,
     );
     taskManager.save();
     taskManager.render();
