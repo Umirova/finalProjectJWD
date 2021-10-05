@@ -7,21 +7,22 @@ const reset = document.querySelector("#reset");
 const addTask = document.querySelector("#addTask");
 
 function toDay() {
-let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1;
-let yyyy = today.getFullYear();
-if(dd<10){
-    dd='0'+dd
-} 
-if(mm<10){
-    mm='0'+mm
-} 
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  let yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
 
-today = yyyy+'-'+mm+'-'+dd;
+  today = yyyy + "-" + mm + "-" + dd;
 
-console.log(today);
-document.getElementById("duedate").setAttribute("min", today); }
+  console.log(today);
+  document.getElementById("duedate").setAttribute("min", today);
+}
 
 function resetForm() {
   let taskName = (document.getElementById("taskName").value = "");
@@ -39,6 +40,7 @@ function resetForm() {
 
 function validation() {
   //grabbing variables
+  let taskId = document.getElementById("mytaskId");
   let taskName = document.getElementById("taskName");
   let textArea = document.getElementById("floatingTextarea");
   let assignedTo = document.getElementById("assignedTo");
@@ -67,10 +69,10 @@ function validation() {
     errorNum++;
   }
   //Validation for assigned to
-  if (assignedTo.value.length > 5) {
+  if (assignedTo.value.length > 3) {
     astError.innerHTML = "";
   } else if (assignedTo.value.length <= 5) {
-    astError.innerHTML = "Task name must be more than 5 characters";
+    astError.innerHTML = "Task name must be more than 3 characters";
     errorNum++;
   }
   //validation form for status and dueDate
@@ -89,7 +91,12 @@ function validation() {
   }
 
   if (errorNum === 0) {
+    let id = -1;
+    if (taskId.value != undefined && taskId.value > 0) {
+      id = taskId.value;
+    }
     taskManager.addTask(
+      id,
       taskName.value,
       textArea.value,
       assignedTo.value,
@@ -105,7 +112,6 @@ function validation() {
 }
 
 //calling events
-
 
 addTask.addEventListener("click", toDay);
 form.addEventListener("click", validation);
@@ -129,6 +135,4 @@ taskList.addEventListener("click", (event) => {
     taskManager.save();
     taskManager.render();
   }
-
-
 });

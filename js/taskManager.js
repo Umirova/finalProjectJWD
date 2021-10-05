@@ -16,11 +16,13 @@ const createTaskHtml = (
 ) => {
   const html = `<div class="card mycard"  data-task-id="${id}" style="width: 24rem">
             <div class="card-body">
-              <h5 class="card-title mycard-title ${style}" id="myTaskName">${name}</h5>
-              <p class="card-text" id="myTaskDescription"> Description: ${description}</p>
-              <p class="card-text" id="myTaskAssTo">Assigned to: ${assignedTo}</p>
-              <p class="card-text" id="myTaskStatus">Status: ${status}</p>
-              <p class="card-text" id="myTaskDueDate">Due date: ${dueDate}</p>
+              <div id="mytaskId"> ${id} </div>
+              <h5 class="card-title mycard-title ${style}"> 
+              ${name}</h5>
+              <p class="card-text"> Description: ${description}</p>
+              <p class="card-text">Assigned to: ${assignedTo}</p>
+              <p class="card-text">Status: ${status}</p>
+              <p class="card-text">Due date: ${dueDate}</p>
               <div class="mycard-buttons">
                 
                 <button type="button" 
@@ -66,107 +68,110 @@ class TaskManager {
     this.tasks = [];
     this.currentId = currentId;
   }
-  addTask(name, description, assignedTo, dueDate, status) {
-    const task = {
-      id: this.currentId++,
-      name: name,
-      description: description,
-      assignedTo: assignedTo,
-      dueDate: dueDate,
-      status: status,
-      style: (function (status) {
-        if (status === "To Do!") {
-          return "toDo";
-        } else if (status === "Review") {
-          return "review";
-        } else if (status === "In Progress") {
-          return "inProgress";
+  addTask(id, name, description, assignedTo, dueDate, status) {
+    if (id === -1) {
+      let task = {
+        id: this.currentId++,
+        name: name,
+        description: description,
+        assignedTo: assignedTo,
+        dueDate: dueDate,
+        status: status,
+        style: (function (status) {
+          if (status === "To Do!") {
+            return "toDo";
+          } else if (status === "Review") {
+            return "review";
+          } else if (status === "In Progress") {
+            return "inProgress";
+          } else {
+            return "done";
+          }
+        })(status),
+      };
+      // Finding place for inserting new task
+      //adding TODO
+      if (task.status === "To Do!") {
+        let a;
+        if (this.tasks.some((t) => t.status === "In Progress")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "In Progress") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
+        } else if (this.tasks.some((t) => t.status === "Review")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "Review") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
+        } else if (this.tasks.some((t) => t.status === "Done!")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "Done!") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
         } else {
-          return "done";
+          a = this.tasks.length;
         }
-      })(status),
-    };
-
-    // Finding place for inserting new task
-    //adding TODO
-    if (task.status === "To Do!") {
-      let a;
-      if (this.tasks.some((t) => t.status === "In Progress")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "In Progress") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else if (this.tasks.some((t) => t.status === "Review")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "Review") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else if (this.tasks.some((t) => t.status === "Done!")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "Done!") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else {
-        a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, task);
-    }
-
-    //adding IN Progress
-    if (task.status === "In Progress") {
-      let a;
-      if (this.tasks.some((t) => t.status === "Review")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "Review") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else if (this.tasks.some((t) => t.status === "Done!")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "Done!") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else {
-        a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, task);
-    }
-
-    //adding Review
-    if (task.status === "Review") {
-      let a;
-      if (this.tasks.some((t) => t.status === "Done!")) {
-        for (let i = 0; i < this.tasks.length; i++) {
-          const taskINeed = this.tasks[i];
-          if (taskINeed.status === "Done!") {
-            a = this.tasks.indexOf(taskINeed);
-          }
-        }
-      } else {
-        a = this.tasks.length;
+        this.tasks.splice(a, 0, task);
       }
 
-      this.tasks.splice(a, 0, task);
+      //adding IN Progress
+      if (task.status === "In Progress") {
+        let a;
+        if (this.tasks.some((t) => t.status === "Review")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "Review") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
+        } else if (this.tasks.some((t) => t.status === "Done!")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "Done!") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
+        } else {
+          a = this.tasks.length;
+        }
+        this.tasks.splice(a, 0, task);
+      }
+
+      //adding Review
+      if (task.status === "Review") {
+        let a;
+        if (this.tasks.some((t) => t.status === "Done!")) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            const taskINeed = this.tasks[i];
+            if (taskINeed.status === "Done!") {
+              a = this.tasks.indexOf(taskINeed);
+            }
+          }
+        } else {
+          a = this.tasks.length;
+        }
+
+        this.tasks.splice(a, 0, task);
+      }
+
+      //adding done
+      if (task.status === "Done!") {
+        this.tasks.push(task);
+      }
+
+    } else {
+      this.editTask(id, name, description, assignedTo, dueDate, status);
     }
 
-    //adding done
-    if (task.status === "Done!") {
-      this.tasks.push(task);
-    }
-    //start of trial
   }
 
-  //end of trial
-  //
+  
 
   getTaskById(taskId) {
     let foundTask;
@@ -179,6 +184,21 @@ class TaskManager {
     console.log(foundTask);
     return foundTask;
   }
+
+  editTask(id, name, description, assignedTo, dueDate, status){
+    let matchingTasks = this.tasks.filter(t => t.id == id);
+    let matchingTask = matchingTasks[0];
+    console.log(matchingTask);
+    matchingTask.name = name;
+    matchingTask.description = description;
+    matchingTask.assignedTo = assignedTo;
+    matchingTask.dueDate = dueDate;
+    matchingTask.status = status;
+    
+
+  }
+
+
 
   render() {
     let tasksHtmlList = [];
