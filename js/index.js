@@ -39,6 +39,7 @@ function resetForm() {
 }
 
 function validation() {
+  
   //grabbing variables
   let taskId = document.getElementById("mytaskId");
   let taskName = document.getElementById("taskName");
