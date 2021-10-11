@@ -89,85 +89,23 @@ class TaskManager {
           }
         })(status),
       };
-      // Finding place for inserting new task
-      //adding TODO
-      if (task.status === "To Do!") {
-        let a;
-        if (this.tasks.some((t) => t.status === "In Progress")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "In Progress") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else if (this.tasks.some((t) => t.status === "Review")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "Review") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else if (this.tasks.some((t) => t.status === "Done!")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "Done!") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else {
-          a = this.tasks.length;
-        }
-        this.tasks.splice(a, 0, task);
-      }
-
-      //adding IN Progress
-      if (task.status === "In Progress") {
-        let a;
-        if (this.tasks.some((t) => t.status === "Review")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "Review") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else if (this.tasks.some((t) => t.status === "Done!")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "Done!") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else {
-          a = this.tasks.length;
-        }
-        this.tasks.splice(a, 0, task);
-      }
-
-      //adding Review
-      if (task.status === "Review") {
-        let a;
-        if (this.tasks.some((t) => t.status === "Done!")) {
-          for (let i = 0; i < this.tasks.length; i++) {
-            const taskINeed = this.tasks[i];
-            if (taskINeed.status === "Done!") {
-              a = this.tasks.indexOf(taskINeed);
-            }
-          }
-        } else {
-          a = this.tasks.length;
-        }
-
-        this.tasks.splice(a, 0, task);
-      }
-
-      //adding done
-      if (task.status === "Done!") {
-        this.tasks.push(task);
-      }
+      this.tasks.push(task);
     } else {
       this.editTask(id, name, description, assignedTo, dueDate, status);
     }
 
+    //sorting array correctly
+    this.tasks.sort(function (taskA, taskB) {
+      let stat = {
+        "To Do!": 1,
+        "In Progress": 2,
+        Review: 3,
+        "Done!": 4,
+      };
+      return stat[taskA.status] - stat[taskB.status];
+    });
+
+    //updates webpage after save
     window.location.href = window.location.href;
   }
 
@@ -184,9 +122,7 @@ class TaskManager {
   }
 
   editTask(id, name, description, assignedTo, dueDate, status) {
-    let matchingTasks = this.tasks.filter((t) => t.id == id);
-    let matchingTask = matchingTasks[0];
-    // matchingTask.id += 1000;
+    let matchingTask = this.tasks.find((t) => t.id == id);
     matchingTask.name = name;
     matchingTask.description = description;
     matchingTask.assignedTo = assignedTo;
@@ -203,62 +139,8 @@ class TaskManager {
         return "done";
       }
     })(status);
-    //if we change status to TO DO
-    if (matchingTask.status === "To Do!") {
-      let a;
-      if (this.tasks.some((t) => t.status === "In Progress")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "In Progress");
-        a = this.tasks.indexOf(taskINeed);
-      } else if (this.tasks.some((t) => t.status === "Review")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "Review");
-        a = this.tasks.indexOf(taskINeed);
-      } else if (this.tasks.some((t) => t.status === "Done!")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "Done!");
-        a = this.tasks.indexOf(taskINeed);
-      } else {
-        a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, matchingTask);
-      // delete
-      let delID = matchingTask.id - 1000;
-      let deleteT = this.tasks.find((del) => del.id == delID);
-      this.tasks.splice(this.tasks.indexOf(deleteT), 1);
-    }
-    //if we change status to IN PROGRESS
-    if (matchingTask.status === "In Progress") {
-      let a;
-      if (this.tasks.some((t) => t.status === "Review")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "Review");
-        a = this.tasks.indexOf(taskINeed);
-      } else if (this.tasks.some((t) => t.status === "Done!")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "Done!");
-        a = this.tasks.indexOf(taskINeed);
-      } else {
-        a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, matchingTask);
-      this.tasks.splice(this.tasks.indexOf(matchingTask), 1);
-    }
 
-    //if we change status to REVIEW
-
-    if (matchingTask.status === "Review") {
-      let a;
-      if (this.tasks.some((t) => t.status === "Done!")) {
-        let taskINeed = this.tasks.find((ts) => ts.status == "Done!");
-        a = this.tasks.indexOf(taskINeed);
-      } else {
-        a = this.tasks.length;
-      }
-      this.tasks.splice(a, 0, matchingTask);
-      this.tasks.splice(this.tasks.indexOf(matchingTask), 1);
-    }
-
-    // if we change status to DONE
-    if (matchingTask.status === "Done!") {
-      this.tasks.push(matchingTask);
-      this.tasks.splice(this.tasks.indexOf(matchingTask), 1);
-    }
+    //check if the status has changed
   }
 
   render() {
