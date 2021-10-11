@@ -137,3 +137,4 @@ taskList.addEventListener("click", (event) => {
     taskManager.render();
   }
 });
+taskManager.prog();
