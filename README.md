@@ -1,2 +1,2 @@
 # finalProjectJWD
-Final project team Joel, Kate and Naz
+Final project team Kate and Naz
