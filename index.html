@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List by NKJ team</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- java script -->
+    <script src="./js/taskManager.js" defer></script>
+    <script src="./js/index.js" defer></script>
+  </head>
+
+  <body>
+    <header class="ourLogo">
+      <img
+        src="./images/Screen Shot 2021-08-30 at 12.02.51 pm.png"
+        alt="Team Logo"
+        id="top"
+      />
+    </header>
+
+    <main class="container myContainer">
+      <div class="row myrow1">
+        <div class="col-5 flexbox-container mycont0">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-light addnewbtn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            id="addTask"
+          >
+            <u>Add New Task</u>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add New Task</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="card-body" id="card-size">
+                    <div id="mytaskId"></div>
+                    <label for="taskName">Task Name</label>
+                    <br />
+                    <span id="tnError" class="myError"></span>
+                    <div class="input-group">
+                      <input
+                        type="form-label"
+                        class="form-control"
+                        id="taskName"
+                        value=""
+                      />
+                    </div>
+
+                    <label for="floatingTextarea">Description</label>
+                    <span id="taError" class="myError"></span>
+                    <div class="form-floating">
+                      <textarea
+                        class="form-control"
+                        id="floatingTextarea"
+                        value=""
+                      ></textarea>
+                    </div>
+                    <br />
+
+                    <label for="assignedTo" class="form-label"
+                      >Assigned to</label
+                    >
+                    <span id="astError" class="myError"></span>
+                    <input
+                      class="form-control"
+                      list="datalistOptions"
+                      id="assignedTo"
+                      placeholder="Type to search..."
+                    />
+                    <datalist id="datalistOptions">
+                      <option value="Ekaterina"></option>
+                      <option value="Artemka"></option>
+                      <option value="Nazgul"></option>
+                      <option value="Lisa Ostman"></option>
+                      <option value="Lavina"></option>
+                    </datalist>
+
+                    <br />
+
+                    <label for="status">Status</label>
+                    <span id="sError" class="myError"></span>
+                    <div class="input-group">
+                      <select
+                        class="form-select"
+                        id="status"
+                        aria-label="Floating label select example"
+                      >
+                        <option value></option>
+                        <option value="To Do!">To Do!</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Review">Review</option>
+                        <option value="Done!">Done!</option>
+                      </select>
+                    </div>
+                    <br />
+
+                    <span id="ddError" class="myError"> </span>
+                    <br />
+                    <label for="duedate">Due Date:</label>
+
+                    <input
+                      type="date"
+                      name="duedate"
+                      id="duedate"
+                      min="2021-10-01"
+                    />
+                  </div>
+
+                  <!--  <input type="reset" value="Reset"> -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="reset">
+                    Clear
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="new-task-form"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-7 flexbox-container mycont0">
+          <!-- Progress Bar -->
+
+          <div class="progress h-100 progr-bar" style="width: 100%">
+            <div
+              class="progress-bar bg-success w-5"
+              role="progressbar"
+              id="progressbar"
+              style="width: 25%"
+            >
+              Done
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row myrow2">
+        <!-- Space for tasks -->
+        <div
+          class="col-12 flexbox-container mycont task-list-container"
+          id="task-list"
+        ></div>
+      </div>
+
+      <br />
+      <br />
+
+      <a href="#top" id="backToTop">Back to Top</a>
+    </main>
+
+    <br />
+    <br />
+    <footer>© 2021 NKJ-team. All rights reserved.</footer>
+  </body>
+</html>

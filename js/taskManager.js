@@ -32,7 +32,6 @@ const createTaskHtml = (
                 onclick="openEditModeForm(this)"
                 id="myTaskId"
                 data-task-id="${id}">
-
                 <svg xmlns="http://www.w3.org/2000/svg" width="14"
                  height="14" fill="currentColor" class="bi bi-pencil-fill edit-svg" 
                  viewBox="0 0 16 16">
@@ -93,8 +92,10 @@ class TaskManager {
     } else {
       this.editTask(id, name, description, assignedTo, dueDate, status);
     }
+
     //updates webpage after save
     window.location.href = window.location.href;
+    
     //sorting array correctly
     this.tasks.sort(function (taskA, taskB) {
       let stat = {
@@ -104,7 +105,8 @@ class TaskManager {
         "Done!": 4,
       };
       return stat[taskA.status] - stat[taskB.status];
-    });
+    })
+    
   }
 
   getTaskById(taskId) {
@@ -219,6 +221,5 @@ class TaskManager {
       .getElementById("progressbar")
       .setAttribute("style", `width:${percent}%`);
     console.log(totalTasks, doneTasks, percent);
-    
   }
 }
