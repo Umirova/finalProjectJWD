@@ -94,8 +94,8 @@ class TaskManager {
     }
 
     //updates webpage after save
-    window.location.href = window.location.href;
-    
+    location.reload();
+
     //sorting array correctly
     this.tasks.sort(function (taskA, taskB) {
       let stat = {
