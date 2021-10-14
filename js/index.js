@@ -127,7 +127,7 @@ taskList.addEventListener("click", (event) => {
     taskManager.deleteTask(taskId);
     taskManager.save();
     taskManager.render();
-
+    //window.location.href = window.location.href;
   }
   if (event.target.classList.contains("delete-svg")) {
     let parentTask =
@@ -136,8 +136,9 @@ taskList.addEventListener("click", (event) => {
     taskManager.deleteTask(taskId);
     taskManager.save();
     taskManager.render();
+    //window.location.href = window.location.href;
   }
    //updates webpage after deleting task
-   window.location.href = window.location.href;
+  
 });
 taskManager.prog();

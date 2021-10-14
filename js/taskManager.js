@@ -218,5 +218,6 @@ class TaskManager {
     document.querySelector("#progressbar").innerHTML = `Done by ${percent} %`;
     document.getElementById("progressbar").setAttribute("style", `width:${percent}%`);
     console.log(totalTasks, doneTasks, percent) ;
+   
 }
 }
