@@ -39,7 +39,6 @@ function resetForm() {
 }
 
 function validation() {
-  
   //grabbing variables
   let taskId = document.getElementById("mytaskId");
   let taskName = document.getElementById("taskName");
@@ -102,7 +101,7 @@ function validation() {
       textArea.value,
       assignedTo.value,
       dueDate.value,
-      status.value,
+      status.value
     );
     taskManager.save();
     taskManager.render();
@@ -127,7 +126,8 @@ taskList.addEventListener("click", (event) => {
     taskManager.deleteTask(taskId);
     taskManager.save();
     taskManager.render();
-    //window.location.href = window.location.href;
+    //updates webpage after deleting task
+    window.location.href = window.location.href;
   }
   if (event.target.classList.contains("delete-svg")) {
     let parentTask =
@@ -136,9 +136,8 @@ taskList.addEventListener("click", (event) => {
     taskManager.deleteTask(taskId);
     taskManager.save();
     taskManager.render();
-    //window.location.href = window.location.href;
+    //updates webpage after deleting task
+    window.location.href = window.location.href;
   }
-   //updates webpage after deleting task
-  
 });
 taskManager.prog();
