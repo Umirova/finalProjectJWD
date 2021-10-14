@@ -137,7 +137,7 @@ taskList.addEventListener("click", (event) => {
     taskManager.save();
     taskManager.render();
     //updates webpage after deleting task
-    window.location.href = window.location.href;
+    location.reload();
   }
 });
 taskManager.prog();
