@@ -93,7 +93,8 @@ class TaskManager {
     } else {
       this.editTask(id, name, description, assignedTo, dueDate, status);
     }
-   
+    //updates webpage after save
+    window.location.href = window.location.href;
     //sorting array correctly
     this.tasks.sort(function (taskA, taskB) {
       let stat = {
@@ -104,9 +105,6 @@ class TaskManager {
       };
       return stat[taskA.status] - stat[taskB.status];
     });
-
-    //updates webpage after save
-    window.location.href = window.location.href;
   }
 
   getTaskById(taskId) {
@@ -204,19 +202,23 @@ class TaskManager {
     this.tasks = newTasks;
   }
 
-  prog () {
-    let totalTasks=0;
-    let doneTasks=0;
-     for(let i=0;i<this.tasks.length;i++){
-        totalTasks+=1;
+  prog() {
+    let totalTasks = 0;
+    let doneTasks = 0;
+    for (let i = 0; i < this.tasks.length; i++) {
+      totalTasks += 1;
       const task = this.tasks[i];
       if (task.status === "Done!") {
-          doneTasks+=1; }
+        doneTasks += 1;
       }
-    let percent = Math.round(doneTasks*100 / totalTasks);
-    
+    }
+    let percent = Math.round((doneTasks * 100) / totalTasks);
+
     document.querySelector("#progressbar").innerHTML = `Done by ${percent} %`;
-    document.getElementById("progressbar").setAttribute("style", `width:${percent}%`);
-    console.log(totalTasks, doneTasks, percent) ;
-}
+    document
+      .getElementById("progressbar")
+      .setAttribute("style", `width:${percent}%`);
+    console.log(totalTasks, doneTasks, percent);
+    
+  }
 }
