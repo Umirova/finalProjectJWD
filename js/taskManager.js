@@ -93,7 +93,6 @@ class TaskManager {
     } else {
       this.editTask(id, name, description, assignedTo, dueDate, status);
     }
-
     //sorting array correctly
     this.tasks.sort(function (taskA, taskB) {
       let stat = {
@@ -103,8 +102,7 @@ class TaskManager {
         "Done!": 4,
       };
       return stat[taskA.status] - stat[taskB.status];
-    });
-
+    })
     //updates webpage after save
     window.location.href = window.location.href;
   }
